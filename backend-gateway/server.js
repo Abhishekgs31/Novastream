@@ -106,7 +106,7 @@ app.post('/api/ai-recommendations', requireAuth, async (req, res) => {
     try {
         const { userId, deviceType, timeOfDay, hoverTimeMs } = req.body;
 
-        const aiResponse = await fetch('http://localhost:8000/api/recommend', {
+        const aiResponse = await fetch('http://ai-service:8000/api/recommend', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

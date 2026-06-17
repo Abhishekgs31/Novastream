@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+
+  backend:
+    build: ./backend-gateway
+    ports:
+      - "5000:5000"
+    depends_on:
+      - ai-service
+
+  ai-service:
+    build: ./ai-stream
+    ports:
+      - "8000:8000"
